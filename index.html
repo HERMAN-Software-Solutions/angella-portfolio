@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Angella Tendo – Accurate Data Entry and Records</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8F6; --surface:#FFFFFF; --ink:#10241C; --muted:#52645B; --line:#D5DFD9; --accent:#1B6B49; --accent-ink:#FFFFFF;
+  --hero:#0E2B21; --hero-ink:#EAF3EE; --hero-muted:#A9C2B6; --gold:#F5B83D; --gold-ink:#10241C;
+  --paper:#FBFAF5; --paper-ink:#1A2A22; --paper-line:#CFCBBD; --red:#C8372D; --green:#1B6B49; --focus:#2F6FED;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Instrument Sans","Segoe UI",Arial,sans-serif; --mono:"DM Mono",Consolas,"Courier New",monospace;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1511; --surface:#13211B; --ink:#E8F1EC; --muted:#9BB2A7; --line:#25362D; --accent:#5FCB98; --accent-ink:#0B1511;
+    --hero:#08130E; --focus:#7FA7FF; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1511; --surface:#13211B; --ink:#E8F1EC; --muted:#9BB2A7; --line:#25362D; --accent:#5FCB98; --accent-ink:#0B1511;
+  --hero:#08130E; --focus:#7FA7FF; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.06rem;line-height:1.7}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:500;line-height:1.1}
+p{margin:0 0 14px;max-width:60ch}
+
+/* hero */
+.hero-band{background:var(--hero);color:var(--hero-ink)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:24px 0}
+.top strong{font-family:var(--serif);font-size:1.25rem;font-weight:500}
+.top nav{display:flex;gap:24px;flex-wrap:wrap}
+.top a{color:var(--hero-ink);text-decoration:none;font-weight:500;font-size:.98rem}
+.top a:hover{text-decoration:underline;text-underline-offset:5px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:40px 0 56px}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem);font-weight:700;letter-spacing:-.025em;margin-bottom:24px}
+.hero h1 em{font-style:italic;font-weight:500;background:linear-gradient(transparent 62%,rgba(245,184,61,.55) 62%);padding:0 .06em}
+.hero .sub{color:var(--hero-muted);font-size:1.15rem;max-width:44ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font:inherit;font-weight:600;text-decoration:none;border:2px solid var(--gold);cursor:pointer}
+.btn.gold{background:var(--gold);color:var(--gold-ink)}
+.btn.line{background:transparent;color:var(--gold)}
+.btn:hover{filter:brightness(1.08)}
+
+/* paper form */
+.form{position:relative;background:var(--paper);color:var(--paper-ink);border-radius:6px;padding:28px 28px 22px;box-shadow:0 2px 0 var(--paper-line),0 24px 50px rgba(0,0,0,.35);transform:rotate(.6deg)}
+.form h2{font-size:1.35rem;margin-bottom:2px}
+.form .hint{color:#58665F;font-size:.9rem;margin-bottom:18px;max-width:34ch}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
+.fld label{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#58665F}
+.fld input{width:100%;font:inherit;font-size:1rem;padding:6px 0;border:0;border-bottom:2px solid var(--paper-line);background:transparent;color:var(--paper-ink);border-radius:0}
+.fld input[aria-invalid="true"]{border-bottom-color:var(--red)}
+.fld input:focus-visible{outline:none;border-bottom-color:var(--green)}
+.err{display:block;color:var(--red);font-size:.8rem;min-height:1.3em}
+.fbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.fbtn{font:inherit;font-weight:600;font-size:.95rem;padding:10px 18px;border-radius:6px;border:2px solid var(--paper-ink);cursor:pointer}
+.fbtn.go{background:var(--paper-ink);color:var(--paper)}
+.fbtn.alt{background:transparent;color:var(--paper-ink)}
+.stamp{position:absolute;top:20px;right:22px;font-family:var(--mono);font-weight:500;letter-spacing:.14em;font-size:.95rem;padding:4px 12px;border:3px solid;border-radius:4px;opacity:0;transform:rotate(-8deg);pointer-events:none}
+.stamp.ok{color:var(--green)}.stamp.no{color:var(--red)}
+.stamp.show{opacity:.92;animation:pop .35s ease-out}
+@keyframes pop{from{transform:scale(1.7) rotate(-8deg);opacity:0}to{transform:scale(1) rotate(-8deg);opacity:.92}}
+.msg{font-size:.88rem;min-height:1.4em;margin:12px 0 4px}
+.tbl{overflow-x:auto;margin-top:6px}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:.78rem}
+th,td{text-align:left;padding:7px 8px 7px 0;border-bottom:1px dashed var(--paper-line);white-space:nowrap}
+th{font-weight:500;color:#58665F;text-transform:uppercase;letter-spacing:.06em;font-size:.68rem}
+td.empty{white-space:normal;color:#58665F;font-family:var(--sans);font-size:.85rem}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid rgba(234,243,238,.18);padding:30px 0 40px}
+.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4vw,2.9rem);color:var(--gold);line-height:1}
+.stat span{display:block;margin-top:8px;color:var(--hero-muted);font-size:.95rem;max-width:26ch}
+
+/* body sections */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+section h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:32px;letter-spacing:-.015em;max-width:18em}
+
+.svc{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card h3{font-size:1.25rem;margin-bottom:10px}
+.card p{margin:0;color:var(--muted);font-size:1rem}
+.card.lead{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);grid-row:span 2}
+.card.lead h3{font-size:1.9rem}
+.card.lead p{color:var(--accent-ink);opacity:.92;font-size:1.08rem}
+.card.lead .small{margin-top:18px;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+
+.item{display:grid;grid-template-columns:230px 1fr;gap:8px 40px;padding:26px 0;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:0;padding-top:0}
+.item h3{font-size:1.3rem}
+.item .meta{color:var(--muted);font-size:.93rem;margin-top:4px}
+.item ul{margin:0;padding-left:20px}
+.item li,.item p{margin-bottom:8px;max-width:62ch}
+
+.habits{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.habits h3{font-size:1.3rem;margin-bottom:8px}
+.habits p{color:var(--muted)}
+
+dl{margin:0;display:grid;grid-template-columns:200px 1fr;gap:14px 40px}
+dt{font-weight:600}dd{margin:0;color:var(--muted)}
+
+.contact{background:var(--hero);color:var(--hero-ink);border-radius:20px;padding:clamp(28px,5vw,56px);margin:72px 0 28px}
+.contact h2{color:var(--hero-ink);margin-bottom:14px}
+.contact p{color:var(--hero-muted);font-size:1.1rem}
+.contact .mail{display:inline-block;color:var(--gold);font-family:var(--serif);font-size:clamp(1.3rem,3vw,2rem);margin:6px 0 18px;text-underline-offset:6px}
+.contact .more a{color:var(--hero-ink)}
+footer{padding:0 0 44px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-top:16px}
+  .form{transform:none}
+  .stats{grid-template-columns:1fr;gap:20px}
+  .svc,.habits{grid-template-columns:1fr}
+  .card.lead{grid-row:auto}
+  .item,dl{grid-template-columns:1fr}
+  .f{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.stamp.show{animation:none}}
+</style>
+</head>
+<body>
+<div class="hero-band">
+  <div class="wrap">
+    <header class="top">
+      <strong>Angella Tendo</strong>
+      <nav aria-label="Main"><a href="#help">What I do</a><a href="#proof">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+    </header>
+    <div class="hero">
+      <div>
+        <h1>Records typed <em>right</em>, the first time.</h1>
+        <p class="sub">I’m Angella Tendo, a remote data entry specialist. I deliver accurate, well-organized records with close attention to detail, and I build checks that catch errors before they reach your data.</p>
+        <div class="btns">
+          <a class="btn gold" href="mailto:tendo.angella9@gmail.com">Email me</a>
+          <a class="btn line" href="#contact">Hire me for a small task</a>
+        </div>
+      </div>
+
+      <div class="form" role="group" aria-labelledby="ft">
+        <div class="stamp" id="stamp" aria-hidden="true"></div>
+        <h2 id="ft">Try my accuracy check</h2>
+        <p class="hint">Fill in a record. Every field is checked and tidied. Press “Fill with mistakes” to watch it catch them.</p>
+        <div class="f">
+          <div class="fld"><label for="name">Full name</label><input id="name" type="text" autocomplete="off"><span class="err" id="e-name"></span></div>
+          <div class="fld"><label for="phone">Phone</label><input id="phone" type="text" inputmode="tel" autocomplete="off" placeholder="0772 123 456"><span class="err" id="e-phone"></span></div>
+          <div class="fld"><label for="date">Date</label><input id="date" type="date"><span class="err" id="e-date"></span></div>
+          <div class="fld"><label for="amount">Amount (UGX)</label><input id="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="150000"><span class="err" id="e-amount"></span></div>
+        </div>
+        <div class="fbtns">
+          <button class="fbtn go" type="button" id="add">Add record</button>
+          <button class="fbtn alt" type="button" id="bad">Fill with mistakes</button>
+        </div>
+        <div class="msg" id="msg" role="status" aria-live="polite"></div>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Name</th><th>Phone</th><th>Date</th><th>Amount</th></tr></thead>
+            <tbody id="rows"><tr><td class="empty" colspan="4">Clean records appear here. All data is made up.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>2022–24</b><span>Patient records entered into a medical system</span></div>
+      <div class="stat"><b>6+</b><span>Real bugs confirmed and fixed in a company project</span></div>
+      <div class="stat"><b>3</b><span>Regressions caught by tests I wrote</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <main>
+    <section id="help">
+      <div class="kicker">What I do</div>
+      <h2>Careful work with data, from typing to testing.</h2>
+      <div class="svc">
+        <div class="card lead"><h3>Data entry and records</h3><p>Typing records into systems and forms, accurately and neatly. I keep client information private and I check my work before I send it.</p><div class="small"></div></div>
+        <div class="card"><h3>Data checking</h3><p>Finding wrong, missing or duplicate entries before they cause problems.</p></div>
+        <div class="card"><h3>Software testing</h3><p>Testing apps by hand and with automated tests.</p></div>
+        <div class="card" style="grid-column:2 / span 2"><h3>Simple backend work</h3><p>I build Django and Python systems for storing and managing records, with input checks built in.</p></div>
+      </div>
+    </section>
+
+    <section id="proof">
+      <div class="kicker">Experience</div>
+      <h2>Where I have worked with real data.</h2>
+      <div class="item">
+        <div><h3>Patient records</h3><div class="meta">Front desk systems, Wakiso, Uganda<br>April 2022 – December 2024</div></div>
+        <ul>
+          <li>Entered patient information into the medical system accurately, so staff could find it fast.</li>
+          <li>Worked with medical and admin staff to keep records correct and up to date.</li>
+          <li>Helped keep records available during system failures with basic troubleshooting.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div><h3>ParkEase</h3><div class="meta">Parking system, 2026</div></div>
+        <p>I built the vehicle registration system. The entry form has strict input checks, so bad data cannot get in, and a dashboard shows parking data clearly.</p>
+      </div>
+      <div class="item">
+        <div><h3>Student Attendance System</h3><div class="meta">Records app, 2026</div></div>
+        <p>A full-stack app for student records and attendance, with an admin screen for fast, safe edits.</p>
+      </div>
+      <div class="item">
+        <div><h3>Vatra and Baifam</h3><div class="meta">Team projects, 2026<br>Private company code</div></div>
+        <ul>
+          <li>Tested business systems that store payments, invoices and leases, and helped fix 6+ real bugs.</li>
+          <li>Wrote automated tests that caught 3 regressions during a big code change.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">How I work</div>
+      <h2>Three habits you can count on.</h2>
+      <div class="habits">
+        <div><h3>I check twice.</h3><p>I read my work again before I hand it over, because fixing a mistake later costs more.</p></div>
+        <div><h3>I keep it private.</h3><p>I worked with patient information. I know client data is not for sharing.</p></div>
+        <div><h3>I speak up early.</h3><p>If something in the data looks wrong, I tell you before I carry on.</p></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="kicker">Skills</div>
+      <h2>What I bring.</h2>
+      <dl>
+        <dt>Data work</dt><dd>Accurate data entry, input checking, record keeping, data cleaning</dd>
+        <dt>Tools</dt><dd>SQL, Python, Django, Git</dd>
+        <dt>Testing</dt><dd>Manual testing, automated API tests, finding and reporting defects</dd>
+      </dl>
+    </section>
+
+    <div class="contact" id="contact">
+      <h2>Need records typed or checked?</h2>
+      <p>I work remotely, and I’m happy to start with a small paid task so you can see my work first.</p>
+      <a class="mail" href="mailto:tendo.angella9@gmail.com">tendo.angella9@gmail.com</a>
+      <p class="more" style="margin:0"><a href="https://linkedin.com/in/tendo-angella-335aa3190">LinkedIn</a> &nbsp;·&nbsp; <a href="https://github.com/tendo-angella">GitHub</a></p>
+    </div>
+  </main>
+  <footer>Angella Tendo, Kampala, Uganda</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var ids=["name","phone","date","amount"];
+  function clearErrors(){ids.forEach(function(k){$("e-"+k).textContent="";$(k).setAttribute("aria-invalid","false")});}
+  function check(){
+    var errs={},clean={};
+    var name=$("name").value.trim().replace(/\s+/g," ");
+    if(!/^[A-Za-z][A-Za-z '\-.]{1,60}$/.test(name)||name.split(" ").length<2){errs.name="Enter a first and last name, letters only.";}
+    else{clean.name=name.toLowerCase().replace(/(^|[\s'\-])([a-z])/g,function(m,a,b){return a+b.toUpperCase()});}
+    var m=$("phone").value.replace(/[\s\-()]/g,"").match(/^(?:\+?256|0)(7\d{8})$/);
+    if(!m){errs.phone="Use a Ugandan mobile number, like 0772123456.";}
+    else{clean.phone="+256 "+m[1].slice(0,3)+" "+m[1].slice(3,6)+" "+m[1].slice(6);}
+    var d=$("date").value;
+    if(!d){errs.date="Choose a date.";}
+    else if(new Date(d+"T00:00:00")>new Date()){errs.date="The date cannot be in the future.";}
+    else{clean.date=d.split("-").reverse().join("/");}
+    var a=$("amount").value.replace(/[,\s]/g,"");
+    if(!/^\d+$/.test(a)||Number(a)<=0){errs.amount="Whole numbers only, above 0.";}
+    else{clean.amount=Number(a).toLocaleString("en-US");}
+    return {errs:errs,clean:clean};
+  }
+  function stamp(text,cls){
+    var s=$("stamp");s.className="stamp "+cls;s.textContent=text;
+    void s.offsetWidth;s.className="stamp "+cls+" show";
+  }
+  var count=0;
+  $("add").addEventListener("click",function(){
+    clearErrors();
+    var r=check(),keys=Object.keys(r.errs);
+    if(keys.length){
+      keys.forEach(function(k){$("e-"+k).textContent=r.errs[k];$(k).setAttribute("aria-invalid","true")});
+      $("msg").textContent=keys.length+(keys.length===1?" mistake":" mistakes")+" found. Nothing was saved.";
+      stamp("REJECTED","no");$(keys[0]).focus();return;
+    }
+    var tb=$("rows");
+    if(count===0){tb.innerHTML="";}
+    var tr=document.createElement("tr");
+    ["name","phone","date","amount"].forEach(function(k){var td=document.createElement("td");td.textContent=r.clean[k];tr.appendChild(td);});
+    tb.insertBefore(tr,tb.firstChild);count++;
+    if(tb.children.length>4){tb.removeChild(tb.lastChild);}
+    ids.forEach(function(k){$(k).value="";});
+    $("msg").textContent="Saved. Name, phone and amount were tidied into one format.";
+    stamp("VERIFIED","ok");
+  });
+  $("bad").addEventListener("click",function(){
+    clearErrors();
+    $("name").value="  nakato   BETTY2 ";$("phone").value="0772 12";
+    var t=new Date();t.setDate(t.getDate()+30);$("date").value=t.toISOString().slice(0,10);
+    $("amount").value="-15,000";
+    $("msg").textContent="Mistakes filled in. Press “Add record” to see them caught.";
+    $("stamp").className="stamp";
+  });
+})();
+</script>
+</body>
+</html>
