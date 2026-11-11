@@ -49,6 +49,7 @@ If you want to clone this project and run it on your machine, follow these steps
 git clone https://github.com/malaika-org1/angella-portfolio.git
 cd angella-portfolio
 
+
 2. Install dependencies
 bash
 npm install
