@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     title: "Angella Tendo | Backend Developer",
     description: "Backend developer who builds, tests and secures Django REST APIs.",
   },
+  verification: {
+    google: "PASTE_THE_CONTENT_STRING_HERE", // Only the string inside content=""
+  },
 };
 
 export default function RootLayout({
