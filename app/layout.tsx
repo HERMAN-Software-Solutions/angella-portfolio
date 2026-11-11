@@ -21,15 +21,27 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Angella Tendo | Backend Developer",
+  metadataBase: new URL('https://angella-portfolio.vercel.app'), // <-- Add this line
+  title: {
+    default: "Angella Tendo | Backend Developer",
+    template: "%s | Angella Tendo" // This appends her name to inner page titles
+  },
   description: "Backend developer who builds, tests and secures Django REST APIs. Open to remote work.",
+  keywords: ["Backend Developer", "Django Developer", "Python Developer", "REST API", "Kampala", "Uganda", "Remote Developer"],
+  authors: [{ name: "Angella Tendo" }],
+  creator: "Angella Tendo",
   openGraph: {
     title: "Angella Tendo | Backend Developer",
     description: "Backend developer who builds, tests and secures Django REST APIs.",
-    url: "https://angella.dev",
+    url: "https://angella-portfolio.vercel.app",
     siteName: "Angella Tendo Portfolio",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Angella Tendo | Backend Developer",
+    description: "Backend developer who builds, tests and secures Django REST APIs.",
   },
 };
 
