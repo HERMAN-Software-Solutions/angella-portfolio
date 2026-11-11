@@ -20,13 +20,27 @@ export default async function Image() {
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px' }}>
-          <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: '#6EE7B7', display: 'flex' }}></div>
+        {/* Profile Picture Container */}
+        <div style={{ display: 'flex', marginBottom: '20px' }}>
+          <img 
+            src="https://tendo-angella-portfolio.vercel.app/angella.jpg" 
+            alt="Angella Tendo"
+            style={{
+              width: '160px',
+              height: '160px',
+              borderRadius: '50%',
+              border: '4px solid #6EE7B7',
+              objectFit: 'cover',
+              objectPosition: 'top',
+            }}
+          />
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '20px' }}>
           <span style={{ fontSize: 24, color: '#6EE7B7', fontWeight: 'bold', letterSpacing: '2px', display: 'flex' }}>ANGELLA TENDO</span>
         </div>
         
-        {/* Added display: 'flex' here so the text and span can sit together */}
-        <div style={{ fontSize: 64, fontWeight: 'bold', textAlign: 'center', lineHeight: 1.2, display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div style={{ fontSize: 56, fontWeight: 'bold', textAlign: 'center', lineHeight: 1.2, display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span>Backend APIs that keep every client's data&nbsp;</span>
           <span style={{ color: '#6EE7B7' }}>safe</span>
           <span>.</span>
