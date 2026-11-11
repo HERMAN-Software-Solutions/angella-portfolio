@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description: "Backend developer who builds, tests and secures Django REST APIs.",
   },
   verification: {
-    google: "PASTE_THE_CONTENT_STRING_HERE", // Only the string inside content=""
+    google: "googlee083547305f9a958", // Only include the verification code, not the full meta tag
   },
 };
 
