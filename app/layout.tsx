@@ -21,7 +21,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://angella-portfolio.vercel.app'), // <-- Add this line
+  metadataBase: new URL('https://tendo-angella-portfolio.vercel.app'), // <-- Add this line
   title: {
     default: "Angella Tendo | Backend Developer",
     template: "%s | Angella Tendo" // This appends her name to inner page titles
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Angella Tendo | Backend Developer",
     description: "Backend developer who builds, tests and secures Django REST APIs.",
-    url: "https://angella-portfolio.vercel.app",
+    url: "https://tendo-angella-portfolio.vercel.app",
     siteName: "Angella Tendo Portfolio",
     locale: "en_US",
     type: "website",

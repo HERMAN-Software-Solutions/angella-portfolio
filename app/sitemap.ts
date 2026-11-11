@@ -3,7 +3,7 @@ import { projects, skillsData } from './data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Once she has a custom domain, replace this with 'https://angellatendo.com'
-  const baseUrl = 'https://angella-portfolio.vercel.app' 
+  const baseUrl = 'https://tendo-angella-portfolio.vercel.app' 
 
   // 1. Static pages
   const routes = [
