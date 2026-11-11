@@ -110,4 +110,8 @@ Sanitization: All form inputs are sanitized using isomorphic-dompurify before be
 
 Honeypot: A hidden field is used to catch and silently block spam bots.
 
-<div align="center"> <i>Built with ❤️ by Angella Tendo (and mentored by Herman Software Solutions)</i> </div> ```
+---
+
+<div align="center">
+  <i>Built with ❤️ by Angella Tendo (and mentored by Herman Software Solutions)</i>
+</div>
