@@ -113,6 +113,3 @@ No API Keys in the Frontend: The Brevo API key is stored securely in Vercel's En
 Sanitization: All form inputs are sanitized using isomorphic-dompurify before being sent to Brevo to prevent XSS (Cross-Site Scripting) attacks.
 
 Honeypot: A hidden field is used to catch and silently block spam bots.
-
-
-<div align="center"> <i>Built with ❤️ by Angella Tendo (and mentored by Herman Software Solutions)</i> </div> ```
