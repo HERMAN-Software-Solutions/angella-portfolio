@@ -48,6 +48,7 @@ If you want to clone this project and run it on your machine, follow these steps
 ```bash
 git clone https://github.com/malaika-org1/angella-portfolio.git
 cd angella-portfolio
+
 2. Install dependencies
 bash
 npm install
@@ -58,10 +59,12 @@ bash
 cp .env.example .env.local
 Open .env.local and add your Brevo API Key. (If you don't have one, the contact form will gracefully fail with a 500 error, but the rest of the site will work perfectly).
 
+
 4. Start the development server
 bash
 npm run dev
 Open http://localhost:3000 with your browser to see the result.
+
 
 📂 Project Structure
 text
@@ -78,6 +81,8 @@ app/
 ├── data.ts             # Centralized data for projects and skills
 ├── layout.tsx          # Root layout (fonts, SEO, Navbar, Footer)
 └── page.tsx            # Homepage (Hero, Stats, Projects, Skills)
+
+
 📝 How to Update Content (For Angella)
 All the text for projects, skills, and stats is centralized so you don't have to dig through HTML to update it.
 
@@ -108,5 +113,6 @@ No API Keys in the Frontend: The Brevo API key is stored securely in Vercel's En
 Sanitization: All form inputs are sanitized using isomorphic-dompurify before being sent to Brevo to prevent XSS (Cross-Site Scripting) attacks.
 
 Honeypot: A hidden field is used to catch and silently block spam bots.
+
 
 <div align="center"> <i>Built with ❤️ by Angella Tendo (and mentored by Herman Software Solutions)</i> </div> ```
