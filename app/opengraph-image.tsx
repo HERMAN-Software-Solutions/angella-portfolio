@@ -21,13 +21,18 @@ export default async function Image() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px' }}>
-          <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: '#6EE7B7' }}></div>
-          <span style={{ fontSize: 24, color: '#6EE7B7', fontWeight: 'bold', letterSpacing: '2px' }}>ANGELLA TENDO</span>
+          <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: '#6EE7B7', display: 'flex' }}></div>
+          <span style={{ fontSize: 24, color: '#6EE7B7', fontWeight: 'bold', letterSpacing: '2px', display: 'flex' }}>ANGELLA TENDO</span>
         </div>
-        <div style={{ fontSize: 64, fontWeight: 'bold', textAlign: 'center', lineHeight: 1.2 }}>
-          Backend APIs that keep every client's data <span style={{ color: '#6EE7B7' }}>safe</span>.
+        
+        {/* Added display: 'flex' here so the text and span can sit together */}
+        <div style={{ fontSize: 64, fontWeight: 'bold', textAlign: 'center', lineHeight: 1.2, display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <span>Backend APIs that keep every client's data&nbsp;</span>
+          <span style={{ color: '#6EE7B7' }}>safe</span>
+          <span>.</span>
         </div>
-        <div style={{ fontSize: 24, color: '#A9B1DD', marginTop: '40px' }}>
+
+        <div style={{ fontSize: 24, color: '#A9B1DD', marginTop: '40px', display: 'flex' }}>
           Python • Django • Django REST Framework
         </div>
       </div>
